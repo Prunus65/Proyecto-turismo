@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TurismApp</title>
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/estilos.css')}}">
+    <link href="https://file.myfontastic.com/sk8yQ6MwYAwrJK8oLxSrSF/icons.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/83ff7c4d32.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container container--flex">
+            <div class="logo-container column column--50">
+                <h1 class="logo">Turismo en Nayón</h1>
+            </div>
+            <div class="main-header__contactInfo column column--50">
+                <p class="main-header__contactInfo__phone">
+                    <span class="icon-phone">022-215-235</span>
+                </p>
+                <p class="main-header__contactInfo__address">
+                    <span class="icon-location">Turismapp@servicios.com</span>
+                </p>
+                </div>
+            </div>
+    </header>
+    <!-- <nav class="main-nav">
+        <div class="container container--flex">
+            <span class="icon-menu" id="btnmenu">
+                <ul class="menu" id="menu">
+                    <li class="menu__item"><a href="/" class="menu__link menu__link--select">Inicio</a></li>
+                    <li class="menu__item"><a href="nosotros.html" class="menu__link">Nosotros</a></li>
+                    <li class="menu__item"><a href="Menu" class="menu__link">Menu</a></li>
+                    <li class="menu__item"><a href="Contacto" class="menu__link">Contacto</a></li>
+                </ul>
+                <span class="social-icon">
+                    <a href="" class="social-icon__link"><span class="icon-facebook"></span></a>
+                    <a href="" class="social-icon__link"><span class="icon-twitter"></span></a>
+                    <a href="" class="social-icon__link"><span class="icon-mail"></span></a>
+                </span>
+            </span>
+        </div>
+    </nav> -->
+    <nav id="nav" class="">
+        <ul>
+            <li><a href="#" onclick="toggle()">Home</a></li>
+            <li><a href="/about"onclick="toggle()">About</a></li>
+            <li><a href="#"onclick="toggle()">Contactos</a></li>
+            <li><a href="#"onclick="toggle()">Nosotros</a></li>
+        </ul>
+        <div class="toggle" onclick="toggle()"></div>
+        <div class="social-icon">
+            <a href="facebook.com" target="_blank" class="fab fa-facebook-square"></a>
+            <a href="twitter.com" target="_blank" class="fab fa-twitter-square"></a>
+            <a href="mailto:mailQexample.com" target="_blank" class="fas fa-envelope"></a>
+        </div>
+    </nav>
+    <section class="banner">
+        <img src="{{url_for('static', filename='images/fondo.jpg')}}" alt="_imgBanner" class="banner__img">
+        <div class="banner__content">Viaja seguro a Nayón</div>
+    </section>
+    
+    <main class="main">
+        <section class="section group group--color">
+            <div class="container">
+                <h2 class="main__title">Bienvenidos</h2>
+                <p class="main__txt">La mejor aplicación de servicios turisticos a lo largo de la parroquia de Nayón</p>
+            </div>
+        </section>
+        
+        <section class="group main__about__description">
+            <div class="container container--flex">
+                <div class="column column--50">
+                    <img src="{{url_for('static', filename='images/img3.jpg')}}" alt="">
+                </div>
+                <div class="column column--50">
+                    <h3 class="column__title">
+                        ¿Qué Buscamos?
+                    </h3>
+                    <p class="column__txt">Queremos ofrecer el mejor servicio turístico a la parroquia de Nayón, con múltiples locales y servicios de turismo de acuerdo a sus intereses, además de otorgar los precios más accesibles y la mejor calidad.
+                    </p>
+                    <a href="https://www.google.com/maps/place/Nay%C3%B3n,+Quito+170170/data=!4m2!3m1!1s0x91d59014af30b197:0x326e318187fc3bb9?sa=X&ved=2ahUKEwi12LzXorvxAhWUQjABHchiCn0Q8gEwAHoECAUQAQ" class="btn btn--contact">Mapa</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="group today-special" id="menu">
+            <h2 class="group__title">Puntos de interés</h2>
+            <div class="container container--flex">
+                <div class="column column--50-25">
+                    <img src="{{url_for('static', filename='images/img1.jpg')}}" alt="" class="today-special__img">
+                    <div class="today-special__price"> <a href="https://www.nayon.gob.ec/contenido/item/complejo-montearomo">Complejo MonteAromo </a></div>
+                    <div class="today-special__title">Calle: Paseo K, cerca de Santa Rosa de Nayón </div>
+                </div>
+                <div class="column column--50-25">
+                    <img src="{{url_for('static', filename='images/img6.jpg')}}" alt="" class="today-special__img">
+                    <div class="today-special__price"> <a href="https://www.facebook.com/nayonxvalley/">Nayón Xtreme Valley</a></div>
+                    <div class="today-special__title">Afueras de la parroquía</div>
+                </div>
+                <div class="column column--50-25">
+                    <img src="{{url_for('static', filename='images/img4.jpg')}}" alt="" class="today-special__img">
+                    <div class="today-special__price"> <a href="https://www.google.com/search?safe=active&tbs=lf:1,lf_ui:1&tbm=lcl&sxsrf=ALeKk03jNLfL3r3_D89QxAUzGsJvKCFT1A:1624916447551&q=Parque+de+Nay%C3%B3n&rflfq=1&num=10&ved=2ahUKEwiXgZW9pbvxAhVwmmoFHdoZAdMQtgN6BAgFEAQ#lrd=0x91d5903040ec4975:0x2d7cf47d46cbf137,1,,,&rlfi=hd:;si:3277763447714738487,l,ChBQYXJxdWUgZGUgTmF5w7NuSODg4dnlgICACFokEAAQARgAGAEYAiIQcGFycXVlIGRlIG5hecOzbioGCAIQABABkgEEcGFyaw,y,kHgpW2NFK88;mv:[[-0.1559971,-78.4194526],[-0.17359839999999999,-78.4452438]]">Parque de Nayón</a></div>
+                    <div class="today-special__title">Calle: Gral. Eloy Alfaro y Pablo Calero </div>
+                </div>
+                <div class="column column--50-25">
+                    <img src="{{url_for('static', filename='images/img2.jpg')}}" alt="" class="today-special__img">
+                    <div class="today-special__price">Viveros</div>
+                    <div class="today-special__title">Diversidad en flores y plantas.</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+        
+   <footer class="main--footer">
+            <div class="coontainer container--flex">
+                <div class="column column--33">
+                   <h2 class="column__title">¿Por qué elegirnos?</h2>
+                   <p class="column__txt">Nosotros ofrecemos Lugares de gran Diversión y Entretenimiento</p> 
+                </div>
+                <div class="column column--33">
+                  <h2 class="column__title">Contactanos</h2>
+                  <p class="column__txt">Ing. David Quishpe; Desarrollador web</p>  
+                  <p class="column__txt">Teléfono: 022-215-235</p>  
+                  <p class="column__txt"><i class="fas fa-envelope">  turismapp@servicios.com</i></p>  
+                </div>
+                <div class="column column--33">
+                  <h2 class="column__title">Síguenos en</h2>
+                  <p class="column__txt"><a href="" style="color:white"><i class="fab fa-facebook-square">  Facebook</i></a></p>  
+                  <p class="column__txt"><a href="" style="color:white"><i class="fab fa-twitter-square">  Twitter</i></a></p> 
+                </div>
+                <p class="copy">Copyright (c) 2021 TurismApp
+Todos los derechos reservador</p>
+            </div>
+        </footer>
+<script src="js/menu.js
+"></script> 
+</body>
+</html>
