@@ -256,15 +256,12 @@ nav ul li a:hover{
     padding-top: 10px;
     padding-bottom: 20px;
 }
-.today-special__price{
+.today-special__price a{
+    text-decoration: none;
     font-size: 1.5em;
     color: black;
     font-weight: bold;
 }
-.today-special__price a{
-    text-decoration: none;
-}
-
 /*------------------Estilos Footer*/
 
 .main--footer{
