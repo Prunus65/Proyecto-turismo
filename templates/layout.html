@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>TurismApp</title>
+    <title>{%block title%}{%endblock%} - TurismApp</title>
     <meta name="viewport"
         content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static', filename='css/estilos.css')}}">
@@ -27,24 +27,8 @@
             </div>
         </div>
     </header>
-    <!-- <nav class="main-nav">
-        <div class="container container--flex">
-            <span class="icon-menu" id="btnmenu">
-                <ul class="menu" id="menu">
-                    <li class="menu__item"><a href="/" class="menu__link menu__link--select">Inicio</a></li>
-                    <li class="menu__item"><a href="nosotros.html" class="menu__link">Nosotros</a></li>
-                    <li class="menu__item"><a href="Menu" class="menu__link">Menu</a></li>
-                    <li class="menu__item"><a href="Contacto" class="menu__link">Contacto</a></li>
-                </ul>
-                <span class="social-icon">
-                    <a href="" class="social-icon__link"><span class="icon-facebook"></span></a>
-                    <a href="" class="social-icon__link"><span class="icon-twitter"></span></a>
-                    <a href="" class="social-icon__link"><span class="icon-mail"></span></a>
-                </span>
-            </span>
-        </div>
-    </nav> -->
-    <nav id="nav" class="">
+    
+    <nav id="nav">
         <ul>
             <li><a href="/" onclick="toggle()">Home</a></li>
             <li><a href="/about" onclick="toggle()">About</a></li>
@@ -89,8 +73,7 @@
                 Todos los derechos reservador</p>
         </div>
     </footer>
-    <script src="js/menu.js
-"></script>
+    <script src="{{url_for('static', filename='js/menu.js')}}"></script>
 </body>
 
 </html>

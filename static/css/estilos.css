@@ -182,7 +182,7 @@ nav ul li a:hover{
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.6);
-    z-index: 1000;
+    z-index: 900;
     top: 0;
 }
 .banner__img{
@@ -195,7 +195,7 @@ nav ul li a:hover{
     color: white;
     text-align: center;
     position: absolute;
-    z-index: 1500;
+    z-index: 950;
     top:50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -240,7 +240,10 @@ nav ul li a:hover{
     text-align: center;
     font-weight: 100;
     font-size: 1.8em;
-    margin: 30px;
+    margin: 10px 30px 30px 30px;
+}
+.today-special{
+    margin-top: 30px;
 }
 .today-special .column{
     margin-bottom: 30px;
@@ -292,6 +295,9 @@ nav ul li a:hover{
     .logo{
         color:white;
     }
+    .main-header{
+        padding: 10px;
+    }
     .main-header__contactInfo{
         text-align: right;
     }
@@ -341,9 +347,7 @@ nav ul li a:hover{
     .main__title{
         font-size: 2.2em;
     }
-    .main__about__description{
-        margin-top:30px;
-    }
+    
     .main__about__description .column--50:nth-child(2){
         font: 1em;
     }
@@ -428,7 +432,7 @@ nav ul li a:hover{
         padding: 0;
     }
     .main-header__contactInfo__phone, .main-header__contactInfo__adress{
-        padding-right: 0;
+        
         font-style: 1.15em;
     }
     .main-nav{

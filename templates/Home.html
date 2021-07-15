@@ -1,11 +1,35 @@
 {% extends "layout.html" %}
 
+{% block title %}Home{% endblock %}
+
 {% block content %}
 
 <main class="main">
     <section class="section group group--color">
         <div class="container">
-            <h2 class="main__title">Bienvenidos</h2>
+            <h2 class="group__title">Puntos de interés</h2>
+            <p class="main__txt">Descubre la Magia que se encuentra en cada rincón de la parroquia de Nayón</p>
+        </div>
+    </section>
+    <section class="group today-special" id="menu">
+        <div class="container container--flex">
+            {% for lugar in lugares %}
+                <div class="column column--50-25">
+                    <img src="{{lugar.imagen}}" alt="{{lugar.nombre}}" class="today-special__img">
+                    <div class="today-special__price">
+                        <a href="https://www.nayon.gob.ec/contenido/item/complejo-montearomo">
+                            {{lugar.nombre}}
+                        </a>
+                    </div>
+                    <div class="today-special__title">{{lugar.direccion}}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="section group group--color">
+        <div class="container">
+            <!-- <h2 class="main__title"></h2> -->
             <p class="main__txt">La mejor aplicación de servicios turisticos a lo largo de la parroquia de Nayón</p>
         </div>
     </section>
@@ -26,31 +50,6 @@
                 <a href="https://www.google.com/maps/place/Nay%C3%B3n,+Quito+170170/data=!4m2!3m1!1s0x91d59014af30b197:0x326e318187fc3bb9?sa=X&ved=2ahUKEwi12LzXorvxAhWUQjABHchiCn0Q8gEwAHoECAUQAQ"
                     class="btn btn--contact">Mapa</a>
             </div>
-        </div>
-    </section>
-
-    <section class="group today-special" id="menu">
-        <h2 class="group__title">Puntos de interés</h2>
-        <div class="container container--flex">
-        {% include "components/infocards.html" %}
-            <!-- <div class="column column--50-25">
-                <img src="{{url_for('static', filename='images/img6.jpg')}}" alt="" class="today-special__img">
-                <div class="today-special__price"> <a href="https://www.facebook.com/nayonxvalley/">Nayón Xtreme
-                        Valley</a></div>
-                <div class="today-special__title">Afueras de la parroquía</div>
-            </div>
-            <div class="column column--50-25">
-                <img src="{{url_for('static', filename='images/img4.jpg')}}" alt="" class="today-special__img">
-                <div class="today-special__price"> <a
-                        href="https://www.google.com/search?safe=active&tbs=lf:1,lf_ui:1&tbm=lcl&sxsrf=ALeKk03jNLfL3r3_D89QxAUzGsJvKCFT1A:1624916447551&q=Parque+de+Nay%C3%B3n&rflfq=1&num=10&ved=2ahUKEwiXgZW9pbvxAhVwmmoFHdoZAdMQtgN6BAgFEAQ#lrd=0x91d5903040ec4975:0x2d7cf47d46cbf137,1,,,&rlfi=hd:;si:3277763447714738487,l,ChBQYXJxdWUgZGUgTmF5w7NuSODg4dnlgICACFokEAAQARgAGAEYAiIQcGFycXVlIGRlIG5hecOzbioGCAIQABABkgEEcGFyaw,y,kHgpW2NFK88;mv:[[-0.1559971,-78.4194526],[-0.17359839999999999,-78.4452438]]">Parque
-                        de Nayón</a></div>
-                <div class="today-special__title">Calle: Gral. Eloy Alfaro y Pablo Calero </div>
-            </div>
-            <div class="column column--50-25">
-                <img src="{{url_for('static', filename='images/img2.jpg')}}" alt="" class="today-special__img">
-                <div class="today-special__price">Viveros</div>
-                <div class="today-special__title">Diversidad en flores y plantas.</div>
-            </div> -->
         </div>
     </section>
 
