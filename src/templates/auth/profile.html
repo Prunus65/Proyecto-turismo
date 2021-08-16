@@ -1,7 +1,66 @@
-{% extends './auth/base.html' %}
+{% extends './auth/index.html' %}
+
+{% block title %}Dashboard{% endblock %}
 
 {% block content%}
-<h1 class="title">
-    Welcome, {{ name }}!
-</h1>
+<div class="row py-4 justify-content-md-end">
+    <!-- Button trigger modal -->
+    <div class="col-2">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Crear Nuevo Lugar
+          </button>
+    </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                  <label for="inputname" class="form-label">Nombre:</label>
+                  <input type="text" class="form-control" id="inputname" aria-describedby="nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="textdescription" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="textdescription" rows="2" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="inputcontact" class="form-label">Contacto:</label>
+                    <input type="text" class="form-control" id="inputcontact" aria-describedby="contacto" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputdirection" class="form-label">Dirección:</label>
+                    <input type="text" class="form-control" id="inputdirection" aria-describedby="contacto" required>
+                </div>
+                <div class="mb-3">
+                    <label for="selectcat" class="form-label">Categoria del Lugar:</label>
+                    <select class="form-select" required aria-label="select example" id="selectcat">
+                      <option value="">Selecciona</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div class="invalid-feedback">Example invalid select feedback</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFile" class="form-label">Imagen:</label>
+                    <input class="form-control" type="file" accept="image/*" id="formFile">
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-cols-lg-3">
+    <div class="col">
+        {{ name }}
+    </div>
+  </div>
+</div>
 {% endblock%}

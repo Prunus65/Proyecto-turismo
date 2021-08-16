@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}Categorias{% endblock %}
+
+{% block content %}
+
+<main class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-4 my-4 justify-content-md-around">
+        {% for cat in categorias %}
+            <div class="col">
+                <div class="card h-100">
+                <img src="..." class="card-img-top" alt="{{cat.nombre}}">
+                <div class="card-body">
+                  <h5 class="card-title">{{ cat.nombre }}</h5>
+                  <p class="card-text">Esta es una descripción de una categoria de lugar.</p>
+                  <a href="{{ url_for('main.categorias') }}"" class="btn btn-danger">Explorar Lugares</a>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock %}

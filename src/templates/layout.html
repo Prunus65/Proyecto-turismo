@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>{%block title%}{%endblock%} - TurismApp</title>
-    <meta name="viewport"
-        content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='css/estilos.css')}}">
     <link href="https://file.myfontastic.com/sk8yQ6MwYAwrJK8oLxSrSF/icons.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/83ff7c4d32.js" crossorigin="anonymous"></script>
@@ -13,11 +13,11 @@
 
 <body>
     <header class="main-header">
-        <div class="container container--flex">
-            <div class="logo-container column column--50">
+        <div class="row gx-0">
+            <div class="logo-container col-md-6">
                 <h1 class="logo">Turismo en Nayón</h1>
             </div>
-            <div class="main-header__contactInfo column column--50">
+            <div class="main-header__contactInfo col-md-6">
                 <p class="main-header__contactInfo__phone">
                     <span class="icon-phone">022-215-235</span>
                 </p>
@@ -31,8 +31,7 @@
     <nav id="nav">
         <ul>
             <li><a href="{{ url_for('main.home') }}" onclick="toggle()">Home</a></li>
-            <li><a href="{{ url_for('main.about') }}" onclick="toggle()">About</a></li>
-            <li><a href="{{ url_for('auth.login') }}" onclick="toggle()">Login</a></li>
+            <li><a href="{{ url_for('main.categorias') }}" onclick="toggle()">Categorias</a></li>
             <li><a href="#" onclick="toggle()">Mapa</a></li>
         </ul>
         <div class="toggle" onclick="toggle()"></div>
@@ -51,18 +50,18 @@
     {% endblock %}
 
     <footer class="main--footer">
-        <div class="coontainer container--flex">
-            <div class="column column--33">
+        <div class="row gx-0 justify-content-md-around">
+            <div class="col-md-3">
                 <h2 class="column__title">¿Por qué elegirnos?</h2>
                 <p class="column__txt">Nosotros ofrecemos Lugares de gran Diversión y Entretenimiento</p>
             </div>
-            <div class="column column--33">
+            <div class="col-md-3">
                 <h2 class="column__title">Contactanos</h2>
                 <p class="column__txt">Ing. David Quishpe; Desarrollador web</p>
                 <p class="column__txt">Teléfono: 022-215-235</p>
                 <p class="column__txt"><i class="fas fa-envelope"> turismapp@servicios.com</i></p>
             </div>
-            <div class="column column--33">
+            <div class="col-md-3">
                 <h2 class="column__title">Síguenos en</h2>
                 <p class="column__txt"><a href="" style="color:white"><i class="fab fa-facebook-square">
                             Facebook</i></a></p>
@@ -74,6 +73,7 @@
         </div>
     </footer>
     <script src="{{url_for('static', filename='js/menu.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" ></script>
 </body>
 
 </html>

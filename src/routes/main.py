@@ -9,9 +9,10 @@ def home():
     lugares = Lugares.query.all()
     return render_template('Home.html', lugares = lugares)
 
-@main.route('/about')
-def about():
-    return render_template('about.html')
+@main.route('/categorias')
+def categorias():
+    categorias= Categorias.query.all()
+    return render_template('lugares.html', categorias = categorias)
 
 @main.route('/profile')
 @login_required

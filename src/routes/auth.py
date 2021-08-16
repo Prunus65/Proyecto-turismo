@@ -54,7 +54,7 @@ def sign_up():
 
     db.session.add(new_user)
     db.session.commit()
-
+    flash('Cuenta creada existosamente')
     return redirect(url_for('auth.login'))
 
 @auth.route('/logout')

@@ -4,52 +4,52 @@
 
 {% block content %}
 
-<main class="main">
+<main class="container-fluid px-0">
     <section class="section group group--color">
-        <div class="container">
+        <div class="container-c">
             <h2 class="group__title">Puntos de interés</h2>
             <p class="main__txt">Descubre la Magia que se encuentra en cada rincón de la parroquia de Nayón</p>
         </div>
     </section>
-    <section class="group today-special" id="menu">
-        <div class="container container--flex">
-            {% for lugar in lugares %}
-                <div class="column column--50-25">
+    <section class="row row-cols-1 row-cols-md-4 g-4 m-4" id="menu">
+        {% for lugar in lugares %}
+            <div class="col">
+                <div class="card h-100">
                     <img src="{{lugar.imagen}}" alt="{{lugar.nombre}}" class="today-special__img">
-                    <div class="today-special__price">
-                        <a href="https://www.nayon.gob.ec/contenido/item/complejo-montearomo">
-                            {{lugar.nombre}}
-                        </a>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a class="text-reset fs-4 fw-bolder text-decoration-none stretched-link" href="https://www.nayon.gob.ec/contenido/item/complejo-montearomo">
+                                {{lugar.nombre}}
+                            </a>
+                        </h5>
+                        <div class="card-text">{{lugar.direccion}}</div>
                     </div>
-                    <div class="today-special__title">{{lugar.direccion}}</div>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
     </section>
 
     <section class="section group group--color">
-        <div class="container">
-            <!-- <h2 class="main__title"></h2> -->
+        <div class="container-c">
+            <h2 class="main__title">TurismApp</h2>
             <p class="main__txt">La mejor aplicación de servicios turisticos a lo largo de la parroquia de Nayón</p>
         </div>
     </section>
 
-    <section class="group main__about__description">
-        <div class="container container--flex">
-            <div class="column column--50">
-                <img src="{{url_for('static', filename='images/img3.jpg')}}" alt="">
-            </div>
-            <div class="column column--50">
-                <h3 class="column__title">
-                    ¿Qué Buscamos?
-                </h3>
-                <p class="column__txt">Queremos ofrecer el mejor servicio turístico a la parroquia de Nayón, con
-                    múltiples locales y servicios de turismo de acuerdo a sus intereses, además de otorgar los
-                    precios más accesibles y la mejor calidad.
-                </p>
-                <a href="https://www.google.com/maps/place/Nay%C3%B3n,+Quito+170170/data=!4m2!3m1!1s0x91d59014af30b197:0x326e318187fc3bb9?sa=X&ved=2ahUKEwi12LzXorvxAhWUQjABHchiCn0Q8gEwAHoECAUQAQ"
-                    class="btn btn--contact">Mapa</a>
-            </div>
+    <section class="row gx-0">
+        <div class="col-md-6">
+            <img src="{{url_for('static', filename='images/img3.jpg')}}" alt="">
+        </div>
+        <div class="col-md-6 p-3 align-self-center">
+            <h3 class="column__title">
+                ¿Qué Buscamos?
+            </h3>
+            <p class="column__txt">Queremos ofrecer el mejor servicio turístico a la parroquia de Nayón, con
+                múltiples locales y servicios de turismo de acuerdo a sus intereses, además de otorgar los
+                precios más accesibles y la mejor calidad.
+            </p>
+            <a href="https://www.google.com/maps/place/Nay%C3%B3n,+Quito+170170/data=!4m2!3m1!1s0x91d59014af30b197:0x326e318187fc3bb9?sa=X&ved=2ahUKEwi12LzXorvxAhWUQjABHchiCn0Q8gEwAHoECAUQAQ"
+                class="btn btn--contact">Mapa</a>
         </div>
     </section>
 
