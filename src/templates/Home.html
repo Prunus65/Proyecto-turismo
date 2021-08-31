@@ -15,7 +15,7 @@
         {% for lugar in lugares %}
             <div class="col">
                 <div class="card h-100">
-                    <img src="{{lugar.imagen}}" alt="{{lugar.nombre}}" class="today-special__img">
+                    <img src="{{url_for('static', filename='images/lugares/'+lugar.imagen)}}" alt="{{lugar.nombre}}" class="today-special__img">
                     <div class="card-body">
                         <h5 class="card-title">
                             <a class="text-reset fs-4 fw-bolder text-decoration-none stretched-link" href="https://www.nayon.gob.ec/contenido/item/complejo-montearomo">
