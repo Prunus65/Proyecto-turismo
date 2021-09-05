@@ -4,14 +4,14 @@
 
 {% block content %}
 <div class="row py-4 justify-content-md-end">
-    <!-- Button trigger modal -->
-    <div class="col-2">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Crear Nuevo Lugar
-          </button>
-    </div>
-  
-  <!-- Modal -->
+  <!-- Button trigger modal -->
+  <div class="col-2">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Crear Nuevo Lugar
+    </button>
+  </div>
+
+  <!-- Modal Insert-->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -20,47 +20,142 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="{{ url_for('main.insert') }}" method="POST" enctype="multipart/form-data">
-                <div class="mb-3">
-                  <label for="inputname" class="form-label">Nombre:</label>
-                  <input name='nombre' type="text" class="form-control" id="inputname" aria-describedby="nombre" required>
-                </div>
-                <div class="mb-3">
-                    <label for="textdescription" class="form-label">Descripción</label>
-                    <textarea name='descripcion' class="form-control" id="textdescription" rows="2" required></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="inputcontact" class="form-label">Contacto:</label>
-                    <input name='contacto' type="text" class="form-control" id="inputcontact" aria-describedby="contacto" required>
-                </div>
-                <div class="mb-3">
-                    <label for="inputdirection" class="form-label">Dirección:</label>
-                    <input name='direccion' type="text" class="form-control" id="inputdirection" aria-describedby="contacto" required>
-                </div>
-                <div class="mb-3">
-                    <label for="selectcat" class="form-label">Categoria del Lugar:</label>
-                    <select name='categoria' class="form-select" required aria-label="select example" id="selectcat">
-                      <option value="">Selecciona</option>
-                      {% for cat in categorias %}
-                      <option value={{cat.id}}>{{ cat.nombre }}</option>
-                      {% endfor %}
-                    </select>
-                    <div class="invalid-feedback">Example invalid select feedback</div>
-                  </div>
-                  <div class="mb-3">
-                    <label for="formFile" class="form-label">Imagen:</label>
-                    <input name='imagen' class="form-control" type="file" accept="image/*" id="formFile">
-                  </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+          <form action="{{ url_for('main.insert') }}" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="inputname" class="form-label">Nombre:</label>
+              <input name='nombre' type="text" class="form-control" id="inputname" aria-describedby="nombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="textdescription" class="form-label">Descripción</label>
+              <textarea name='descripcion' class="form-control" id="textdescription" rows="2" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="inputcontact" class="form-label">Contacto:</label>
+              <input name='contacto' type="text" class="form-control" id="inputcontact" aria-describedby="contacto"
+                required>
+            </div>
+            <div class="mb-3">
+              <label for="inputdirection" class="form-label">Dirección:</label>
+              <input name='direccion' type="text" class="form-control" id="inputdirection" aria-describedby="direccion"
+                required>
+            </div>
+            <div class="mb-3">
+              <label for="inputdirection" class="form-label">Coordenadas:</label>
+              <input name='coordenadas' type="text" class="form-control" id="inputcoord" aria-describedby="coordenadas"
+                required>
+            </div>
+            <div class="mb-3">
+              <label for="selectcat" class="form-label">Categoria del Lugar:</label>
+              <select name='categoria' class="form-select" required aria-label="select example" id="selectcat">
+                <option value="">Selecciona</option>
+                {% for cat in categorias %}
+                {% if cat.id != 0 %}
+                <option value={{cat.id}}>{{ cat.nombre }}</option>
+                {% endif %}
+                {% endfor %}
+              </select>
+              <div class="invalid-feedback">Example invalid select feedback</div>
+            </div>
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Imagen:</label>
+              <input name='imagen' class="form-control" type="file" accept="image/*" id="formFile">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
   <div class="row row-cols-lg-3">
     <div class="col">
-        {{ name }}
+      Bienvenido!
     </div>
   </div>
 </div>
+<section class="row row-cols-1 row-cols-md-4 g-4 m-4"" id="menu">
+  {% for lugar in lugares %}
+    <div class="col">
+      <div class="card h-100">
+          <img src="{{url_for('static', filename='images/lugares/'+lugar.imagen)}}" alt="{{lugar.nombre}}"
+        class="card-img-top" style="max-height: 200px;">
+        <div class="card-body">
+          <h5 class="card-title">{{lugar.nombre}}</h5>
+          <p class="card-text">{{lugar.direccion}}</p>
+        </div>
+        <div class="card-footer justify-content-between">
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+            data-bs-target="#modalEdit{{lugar.id}}">
+            editar
+        </button>
+          <a href='/delete/{{lugar.id}}' class="btn btn-danger" onclick="return confirm('¿Estas seguro de eliminar el Lugar?')">
+            eliminar
+          </a>
+        </div>
+      </div>
+
+    <!-- Modal Update-->
+    <div class="modal fade" id="modalEdit{{lugar.id}}" role="dialog">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="/update/{{lugar.id}}" method="POST" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="inputname" class="form-label">Nombre:</label>
+                <input name='nombre' value="{{lugar.nombre}}" type="text" s class="form-control" id="inputname"
+                  aria-describedby="nombre" required />
+              </div>
+              <div class="mb-3">
+                <label for="textdescription" class="form-label">Descripción</label>
+                <textarea name='descripcion'
+                  class="form-control"
+                  id="textdescription"
+                  rows="4"
+                  required
+                >{{lugar.descripcion}}</textarea>
+              </div>
+              <div class="mb-3">
+                <label for="inputcontact" class="form-label">Contacto:</label>
+                <input name='contacto' value="{{lugar.contacto}}" type="text" class="form-control" id="inputcontact"
+                  aria-describedby="contacto" required />
+              </div>
+              <div class="mb-3">
+                <label for="inputdirection" class="form-label">Dirección:</label>
+                <input name='direccion' value="{{lugar.direccion}}" type="text" class="form-control" id="inputdirection"
+                  aria-describedby="contacto" required />
+              </div>
+              <div class="mb-3">
+                <label for="inputdirection" class="form-label">Coordenadas:</label>
+                <input name='coordenadas' value="{{lugar.coordenadas}}" type="text" class="form-control" id="inputcoord"
+                  aria-describedby="coordenadas" required />
+              </div>
+              <div class="mb-3">
+                <label for="selectcat" class="form-label">Categoria del Lugar:</label>
+                <select name='categoria' class="form-select" required aria-label="select example" id="selectcat">
+                  {% for cat in categorias %}
+                    {% if cat.id != 0 %}
+                    <option value={{cat.id}} {% if cat.id==lugar.categoriaId %} selected {% endif %}>{{ cat.nombre }}
+                    </option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+                <div class="invalid-feedback">invalid select feedback</div>
+              </div>
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Imagen:</label>
+                <input name='imagen' class="form-control" type="file" accept="image/*" id="formFile" required/>
+              </div>
+              <button type="submit" class="btn btn-primary">Actualizar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+</section>
 {% endblock%}

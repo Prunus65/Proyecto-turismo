@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}Categorias{% endblock %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row row-cols-1 row-cols-md-2 my-4 g-4 justify-content-md-around">
+        {% for cat in categorias %}
+            {% if cat.id != 0 %}
+            <div class="col">
+              <div class="card h-100 text-center">
+              <img src="{{url_for('static', filename='images/logo-turismap.png')}}" class="card-img-top" alt="{{cat.nombre}}">
+              <div class="card-body">
+                <b><h5 class="card-title">{{ cat.nombre }}</h5></b>
+              </div>
+              <div class="card-footer bg-transparent">
+                <a href="/categoria/{{cat.id}}" class="btn btn-danger">Explorar Lugares</a>
+              </div>
+            </div>
+          </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock %}

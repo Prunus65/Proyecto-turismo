@@ -217,17 +217,6 @@ nav ul li a:hover{
 .main__about__description .column:nth-child(2){
     padding: 10px;
 }
-.btn{
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    width: 120px;
-    background: #E73438;
-    color: white;
-    padding: 10px;
-    margin: 10px auto;
-}
-
 .group__title{
     font-family: 'Pacifico', cursive;
     text-align: center;
